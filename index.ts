@@ -1,5 +1,5 @@
 /*
-  Catching More Errors P1
+  Catching More Errors P2
 
 */
 
@@ -20,12 +20,12 @@ axios.get(url).then((resp) => {
   const title = todo.title
   const completed = todo.completed
 
-  // (2) if we pass with incorrect order of params
+  // (2) error is highlighted
   logTodo(id, completed, title)
 })
 
-// (1)
-const logTodo = (id, title, completed) => {
+// (1) add types
+const logTodo = (id: number, title: string, completed: boolean) => {
   console.log(`
   The Toto with ID: ${id}
   Has a title of: ${title}
