@@ -1,18 +1,18 @@
 /*
-  Inference Around Functions
-  - pic: func
+  Annotations for Anonymous Functions
+  
 */
 
-// (***) remove type return annotation > but ts still figures out > type inference
-const add = (a: number, b: number) => {
+function divide(a: number, b: number): number {
+  return a / b
+}
+
+// (***) anonymous 1: arrow fn
+const multiply = (a: number, b: number): number => {
+  return a * b
+}
+
+// (***) anonymous 2: normal fn
+const add = function (a: number, b: number): number {
   return a + b
-}
-
-const subtract = (a: number, b: number) => {
-  a - b // missing return > void
-}
-
-// (***) without return > error
-const subtractX = (a: number, b: number): number => {
-  a - b // missing return > void
 }
