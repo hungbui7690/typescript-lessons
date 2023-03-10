@@ -1,27 +1,20 @@
 /*
-  Annotations Around Objects
+  Arrays in Typescript
   
 */
 
-const profile = {
-  name: 'Alex',
-  age: 20,
-  job: 'dev',
-  coords: {
-    lat: 0,
-    lng: 15,
-  },
-  setAge(age: number): void {
-    this.age = age
-  },
-}
+const carMakers = ['ford', 'toyota', 'chevy']
 
-// Destructuring
-const { age }: { age: number } = profile
+const fruits: string[] = ['apple', 'orange']
 
-const {
-  coords: { lat, lng },
-}: { coords: { lat: number; lng: number } } = profile
+// can be empty
+const numbers: number[] = []
 
-// error here: but can be ignore > since ts use this variable
-const { name, job }: { name: string; job: string } = profile
+// hover
+const dates = [new Date(), new Date()]
+
+// string[][] > array of array
+const carsByMake = [['f140'], ['corolla'], ['prius']]
+
+// 2D array
+const tools: string[][] = []
