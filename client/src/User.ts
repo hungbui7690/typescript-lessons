@@ -1,16 +1,18 @@
 import { faker } from '@faker-js/faker'
 
-class User {
+// (1)
+export class User {
   name: string
   location: {
     lat: number
     lng: number
   }
   constructor() {
-    // (***) ctrl + click on "name" or "faker" to go to Type Def File
     this.name = faker.name.firstName()
+
+    // (***) we cannot use this.location.lat = fake... > err > since we haven't initialize this.location > use the way below : initialize location
     this.location = {
-      lat: parseFloat(faker.address.latitude()), // because lng and lat of faker return string > need to parse
+      lat: parseFloat(faker.address.latitude()),
       lng: parseFloat(faker.address.longitude()),
     }
   }

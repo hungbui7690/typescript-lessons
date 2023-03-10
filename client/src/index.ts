@@ -1,15 +1,19 @@
 /*
-  Generating Random Data
-  > npm install @faker-js/faker
 
-  (1) User.ts
+  - Export Statements inTypescript
 
-//////////////////////////////////////
-
-  - Type Definition File: 
-    + pic > any time we see this > we need to install Type Def File 
-    + @types/{library name} === @type/faker
+  - Defining a Company
+  
+    (3) create Company.ts
 
 */
 
-console.log('hello')
+// (2)
+import { User } from './User'
+import { Company } from './Company'
+
+const user = new User()
+console.log(user)
+
+const company = new Company()
+console.log(company)
