@@ -1,15 +1,25 @@
 /*
-  Destructuring with Annotations P1
+  Destructuring with Annotations P2
   
 */
 
-// (1) looks nasty
 const logWeather = (forecast: { date: Date; weather: string }): void => {
   console.log(forecast.date)
   console.log(forecast.weather)
 }
 
-// (2)
+// (***) destructuring
+const logWeatherX = ({
+  date,
+  weather,
+}: {
+  date: Date
+  weather: string
+}): void => {
+  console.log(date)
+  console.log(weather)
+}
+
 const forecast = {
   date: new Date(),
   weather: 'sunny',
