@@ -1,16 +1,12 @@
 /*
-  Functions in Interfaces P2
-  - now, we wan to make the interface more generic 
+  Code Reuse with Interfaces
   
-
 */
 
-// (***)
 interface Reportable {
   summary(): string
 }
 
-// (***) more generic
 const printItem = (item: Reportable): void => {
   console.log(item.summary())
 }
@@ -24,4 +20,17 @@ const oldCivic = {
   },
 }
 
+// (***) both oldCivic & drink has summary() > consider as Reportable type
+const drink = {
+  color: 'brown',
+  carbonated: true,
+  sugar: 40,
+  summary(): string {
+    return `My drink has ${this.sugar} grams of sugar`
+  },
+}
+
 printItem(oldCivic)
+
+// (***)
+printItem(drink)
