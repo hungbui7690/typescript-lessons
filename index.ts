@@ -1,20 +1,19 @@
 /*
-  Fields in Classes P2
+  Fields in Classes P3
   
 */
 
 class Vehicle {
-  // (***) shot-cut
-  constructor(public color: string) {}
+  // (***) private/protected > cannot access outside of class
+  constructor(private color: string) {}
 
   protected honk(): void {
     console.log('beep!!')
   }
 }
 
-// (***)
 const vehicle = new Vehicle('orange')
-console.log(vehicle.color)
+console.log(vehicle.color) // (***) err
 
 /////////////////////////
 
