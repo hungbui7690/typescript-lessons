@@ -1,19 +1,20 @@
 /*
-  Functions in Interfaces P1
+  Functions in Interfaces P2
+  - now, we wan to make the interface more generic 
   
 
 */
 
-// (***) we remove all properties > no error > because the oldCivic satisfy the Vehicle Interface
-interface Vehicle {
+// (***)
+interface Reportable {
   summary(): string
 }
 
-const printVehicle = (vehicle: Vehicle): void => {
-  console.log(vehicle.summary())
+// (***) more generic
+const printItem = (item: Reportable): void => {
+  console.log(item.summary())
 }
 
-// (***) this object has more properties than Interface > but no err, because it satisfies the Interface
 const oldCivic = {
   name: 'civic',
   year: new Date(),
@@ -23,4 +24,4 @@ const oldCivic = {
   },
 }
 
-printVehicle(oldCivic)
+printItem(oldCivic)
