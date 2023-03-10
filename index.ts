@@ -1,27 +1,23 @@
 /*
-  Syntax Around Interfaces
-  - can also can define function inside Interface
+  Functions in Interfaces P1
+  
 
 */
 
+// (***) we remove all properties > no error > because the oldCivic satisfy the Vehicle Interface
 interface Vehicle {
-  name: string
-  year: Date // (***)
-  broken: boolean
-  summary(): string // (a) function that returns a string
+  summary(): string
 }
 
 const printVehicle = (vehicle: Vehicle): void => {
-  //  (c)
   console.log(vehicle.summary())
 }
 
+// (***) this object has more properties than Interface > but no err, because it satisfies the Interface
 const oldCivic = {
   name: 'civic',
-  year: new Date(), // (***)
+  year: new Date(),
   broken: true,
-
-  // (b)
   summary(): string {
     return `Name: ${this.name}`
   },
