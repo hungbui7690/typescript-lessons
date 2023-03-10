@@ -1,5 +1,5 @@
 /*
-  Fields with Inheritance P1
+  Fields with Inheritance P2
   
 */
 
@@ -13,8 +13,13 @@ class Vehicle {
 
 /////////////////////////
 
-// (***) write now, we don't have constructor in Car class > every instance is created > called Vehicle constructor
 class Car extends Vehicle {
+  // (***) constructor > super()
+  // we don't put public for color, since color belongs to Vehicle class
+  constructor(public wheels: number, color: string) {
+    super(color)
+  }
+
   private drive(): void {
     console.log(`bup bup bup...`)
   }
@@ -24,5 +29,5 @@ class Car extends Vehicle {
   }
 }
 
-const car = new Car('orange')
-console.log(car.color)
+const car = new Car(4, 'orange')
+console.log(car)
