@@ -1,14 +1,28 @@
 /*
-  Why Tuples
-  - we don't need tuple in JS
+  Interfaces
+  - pic
+  
+////////////////////////////
+
+  Long Type Annotations
 
 */
 
-// it does not have any meaning
-const carSpecs: [number, number] = [400, 3354]
-
-// object is easy to understand and meaningful
-const carStats = {
-  horsePower: 400,
-  weight: 3354,
+const oldCivic = {
+  name: 'civic',
+  year: 2000,
+  broken: true,
 }
+
+// (***) type is has so many properties > hard to read
+const printVehicle = (vehicle: {
+  name: string
+  year: number
+  broken: boolean
+}): void => {
+  console.log(`Name: ${vehicle.name}`)
+  console.log(`Year: ${vehicle.year}`)
+  console.log(`Broken: ${vehicle.broken}`)
+}
+
+printVehicle(oldCivic)
