@@ -1,5 +1,6 @@
 /*
-  Code Reuse with Interfaces
+  General Plan with Interfaces
+  > pic
   
 */
 
