@@ -1,25 +1,23 @@
 /*
-  Types
-  > pic: types-overview
-  > pic: types
+  Types Annotations & Inference
+  - 2 main things of TS
+  - pic
 
-  - types === shotcut === label to describe that object 
+//////////////////////////////////////////
 
-////////////////////////////////////
+  Annotations with Variables
 
-  Where to Use Types?
-  - everywhere
 */
 
-const today = new Date()
-today.getDate() // today. > show all properties & methods of Date > it has internal type
+const apples: number = 5
 
-// hover to see definition
-const person = {
-  age: 20,
-}
+let speed: string = 'fast'
 
-class Color {}
+let hasName: boolean = true
 
-// hover
-const red = new Color()
+let nothingMuch: null = null
+
+let nothing: undefined = undefined
+
+// Built in objects
+let now: Date = new Date()
