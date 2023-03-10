@@ -1,28 +1,27 @@
 /*
-  Destructuring with Annotations P2
+  Annotations Around Objects
   
 */
 
-const logWeather = (forecast: { date: Date; weather: string }): void => {
-  console.log(forecast.date)
-  console.log(forecast.weather)
+const profile = {
+  name: 'Alex',
+  age: 20,
+  job: 'dev',
+  coords: {
+    lat: 0,
+    lng: 15,
+  },
+  setAge(age: number): void {
+    this.age = age
+  },
 }
 
-// (***) destructuring
-const logWeatherX = ({
-  date,
-  weather,
-}: {
-  date: Date
-  weather: string
-}): void => {
-  console.log(date)
-  console.log(weather)
-}
+// Destructuring
+const { age }: { age: number } = profile
 
-const forecast = {
-  date: new Date(),
-  weather: 'sunny',
-}
+const {
+  coords: { lat, lng },
+}: { coords: { lat: number; lng: number } } = profile
 
-logWeather(forecast)
+// error here: but can be ignore > since ts use this variable
+const { name, job }: { name: string; job: string } = profile
