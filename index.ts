@@ -1,5 +1,5 @@
 /*
-  Catching More Errors P2
+  Catching More Errors P3
 
 */
 
@@ -20,11 +20,10 @@ axios.get(url).then((resp) => {
   const title = todo.title
   const completed = todo.completed
 
-  // (2) error is highlighted
-  logTodo(id, completed, title)
+  // (***) fix, now we can run and see the result
+  logTodo(id, title, completed)
 })
 
-// (1) add types
 const logTodo = (id: number, title: string, completed: boolean) => {
   console.log(`
   The Toto with ID: ${id}
