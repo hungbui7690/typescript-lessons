@@ -1,26 +1,21 @@
 /*
-  Typescript Overview
-  - Javascript + Type System
-    > pic: ts-overview
+  Executing TS Code
+  - create index.ts
 
-  > npm install -g typescript
-  > npm install ts-node --save-dev
-    > one time setup
-
-  > tsc --help
-
-///////////////////////////////////////
-
-  A First App
+  - to run: 
+    + tsc index.ts
+    + node index.js
   
-  - make a network request to fetch some JSON and print the result 
-    > https://jsonplaceholder.typicode.com/todos
-    > https://jsonplaceholder.typicode.com/todos/1
-    
-  - pic > first-app
-  
-  (1) npm init -y
-    > create package.json
-  (2) npm install axios
+  - or to combine the 2 commands:
+    + ts-node index.ts
+
   
 */
+
+import axios from 'axios'
+
+const url = 'https://jsonplaceholder.typicode.com/todos/1'
+
+axios.get(url).then((resp) => {
+  console.log(resp.data)
+})
