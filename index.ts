@@ -1,19 +1,18 @@
 /*
-  Void and Never
+  Destructuring with Annotations P1
   
 */
 
-// (***) void: not return anything
-const logger = (message: string): void => {
-  console.log(message)
-
-  // return null // err
-  // return undefined // NO err
+// (1) looks nasty
+const logWeather = (forecast: { date: Date; weather: string }): void => {
+  console.log(forecast.date)
+  console.log(forecast.weather)
 }
 
-// (***) never
-const throwError = (message: string): never => {
-  throw new Error(message)
-
-  // return undefined // error
+// (2)
+const forecast = {
+  date: new Date(),
+  weather: 'sunny',
 }
+
+logWeather(forecast)
