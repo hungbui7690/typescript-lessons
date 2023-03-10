@@ -1,19 +1,31 @@
 /*
-  One Quick Change
-  - return undefined > no error
-  
+  Catching Error with TS P1
+  - check API > properties are wrong, but we don't know
+
+  - there should be a way for us to write out: 
+    + reps.data has properties of: 
+      > id
+      > title
+      > completed
 */
 
 import axios from 'axios'
 
 const url = 'https://jsonplaceholder.typicode.com/todos/1'
 
-axios.get(url).then((resp) => {
-  const todo = resp.data
+// (***)
+interface Todo {
+  id: number
+  title: string
+  completed: boolean
+}
 
-  const ID = todo.ID // undefined
-  const title = todo.Title // undefined
-  const finished = todo.finished // undefined
+axios.get(url).then((resp) => {
+  const todo = resp.data as Todo // (***) after this > show error > hover to check
+
+  const ID = todo.ID
+  const title = todo.Title
+  const finished = todo.finished
 
   console.log(`
     The Toto with ID: ${ID}
