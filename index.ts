@@ -1,18 +1,19 @@
 /*
-  Annotations for Anonymous Functions
+  Void and Never
   
 */
 
-function divide(a: number, b: number): number {
-  return a / b
+// (***) void: not return anything
+const logger = (message: string): void => {
+  console.log(message)
+
+  // return null // err
+  // return undefined // NO err
 }
 
-// (***) anonymous 1: arrow fn
-const multiply = (a: number, b: number): number => {
-  return a * b
-}
+// (***) never
+const throwError = (message: string): never => {
+  throw new Error(message)
 
-// (***) anonymous 2: normal fn
-const add = function (a: number, b: number): number {
-  return a + b
+  // return undefined // error
 }
