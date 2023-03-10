@@ -1,14 +1,27 @@
 /*
-  Instance Method Modifiers P2
+  Fields in Classes P1
   
 */
 
 class Vehicle {
-  // (***) protected > can access from this class and child class > NOT PUBLIC
+  // (1)
+  color: string
+
+  // (2)
+  constructor(color: string) {
+    this.color = color
+  }
+
   protected honk(): void {
     console.log('beep!!')
   }
 }
+
+// (3)
+const vehicle = new Vehicle('orange')
+console.log(vehicle.color)
+
+/////////////////////////
 
 class Car extends Vehicle {
   private drive(): void {
@@ -19,9 +32,3 @@ class Car extends Vehicle {
     this.honk()
   }
 }
-
-const car = new Car()
-car.startDriving()
-
-const vehicle = new Vehicle()
-// vehicle.honk() // err
