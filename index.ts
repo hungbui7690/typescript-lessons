@@ -1,20 +1,18 @@
 /*
-  Arrays in Typescript
+  Why Typed Arrays
   
 */
 
-const carMakers = ['ford', 'toyota', 'chevy']
+const carMakers: string[] = ['ford', 'toyota', 'chevy']
 
-const fruits: string[] = ['apple', 'orange']
+// Help with inference when extracting values
+const car = carMakers[0] // hover
+const myCar = carMakers.pop()
 
-// can be empty
-const numbers: number[] = []
+// Prevent incompatible values
+carMakers.push(100) // error
 
-// hover
-const dates = [new Date(), new Date()]
-
-// string[][] > array of array
-const carsByMake = [['f140'], ['corolla'], ['prius']]
-
-// 2D array
-const tools: string[][] = []
+// help with 'map
+carMakers.map((car: string): string => {
+  return car // car.[] > only show string methods
+})
