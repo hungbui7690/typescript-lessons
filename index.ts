@@ -1,17 +1,7 @@
 /*
-  Annotations Around Functions
-
+  Understanding Inference
+  pic: inference
 */
 
-const logNumber = (i: number) => {
-  console.log(i)
-}
-
-// hover
-const logNumberX: (i: number) => void = (i: number) => {
-  console.log(i)
-}
-
-let apples: number = 5
-let orange = 5 // hover > number > that's type inference
-let grapes
+// if we declare and initialize at the same time > TS will figure out the type for us
+let orange = 5
