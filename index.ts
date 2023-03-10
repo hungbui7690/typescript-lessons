@@ -1,33 +1,25 @@
 /*
-  Catching More Errors P3
+  Types
+  > pic: types-overview
+  > pic: types
 
+  - types === shotcut === label to describe that object 
+
+////////////////////////////////////
+
+  Where to Use Types?
+  - everywhere
 */
 
-import axios from 'axios'
+const today = new Date()
+today.getDate() // today. > show all properties & methods of Date > it has internal type
 
-const url = 'https://jsonplaceholder.typicode.com/todos/1'
-
-interface Todo {
-  id: number
-  title: string
-  completed: boolean
+// hover to see definition
+const person = {
+  age: 20,
 }
 
-axios.get(url).then((resp) => {
-  const todo = resp.data as Todo
+class Color {}
 
-  const id = todo.id
-  const title = todo.title
-  const completed = todo.completed
-
-  // (***) fix, now we can run and see the result
-  logTodo(id, title, completed)
-})
-
-const logTodo = (id: number, title: string, completed: boolean) => {
-  console.log(`
-  The Toto with ID: ${id}
-  Has a title of: ${title}
-  Is it finished? ${completed}
-`)
-}
+// hover
+const red = new Color()
