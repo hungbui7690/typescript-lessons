@@ -1,23 +1,18 @@
 /*
-  Fields in Classes P1
+  Fields in Classes P2
   
 */
 
 class Vehicle {
-  // (1)
-  color: string
-
-  // (2)
-  constructor(color: string) {
-    this.color = color
-  }
+  // (***) shot-cut
+  constructor(public color: string) {}
 
   protected honk(): void {
     console.log('beep!!')
   }
 }
 
-// (3)
+// (***)
 const vehicle = new Vehicle('orange')
 console.log(vehicle.color)
 
