@@ -1,28 +1,30 @@
 /*
-  Basic Inheritance
-  > pic
+  Instance Method Modifiers P1
+  > pic: modifiers
+
+  - default === public
   
+  (***) private : no effects on security > we want to use private to make sure that function or fields cannot be changed by others developers
 */
 
-// super / parent class
 class Vehicle {
-  drive(): void {
-    console.log(`bruhnnnnnnn!!!`)
-  }
-  honk(): void {
+  public honk(): void {
     console.log('beep!!')
   }
 }
 
-// (1) extends > copy all properties and methods in Vehicle to Car
 class Car extends Vehicle {
-  // overwritten
-  drive(): void {
+  // (***) cannot call outside of this class > because this is private > we need to remove drive() in Vehicle class
+  private drive(): void {
     console.log(`bup bup bup...`)
+  }
+
+  startDriving(): void {
+    this.drive()
   }
 }
 
-// (2)
 const car = new Car()
-car.drive()
+// car.drive() // error
+car.startDriving()
 car.honk()
