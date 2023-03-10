@@ -1,17 +1,14 @@
 /*
-  Delayed Initialization P2
-  - pic: inference, any
+  When Inference Doesn't Work P1
+
 */
 
-// 2) when we declare a variable on one line and initialize it later
-let words = ['red', 'green', 'blue']
+// 3) Variable whose type cannot be inferred correctly
+let numbers = [-10, -1, 12]
+let numberAboveZero = false // this variable in this case maybe users, blog posts whereas there's no way for us to predict the values
 
-// (***) fix the issue
-let foundWord: boolean
-
-// (***) best way to write this
-// let foundWord = false
-
-for (let i = 0; i < words.length; i++) {
-  if (words[i] === 'green') foundWord = true
+for (let i = 0; i < numbers.length; i++) {
+  if (numbers[i] > 0) {
+    numberAboveZero = numbers[i]
+  }
 }
