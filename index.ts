@@ -1,23 +1,21 @@
 /*
-  Types Annotations & Inference
-  - 2 main things of TS
-  - pic
-
-//////////////////////////////////////////
-
-  Annotations with Variables
+  Object Literals Annotations
 
 */
 
-const apples: number = 5
+// Array
+let colors: string[] = ['red', 'green', 'blue']
+let numbers: number[] = [1, 2, 3]
+let truths: boolean[] = [true, false]
 
-let speed: string = 'fast'
+// Classes
+class Car {}
 
-let hasName: boolean = true
+let carX: Car
+carX = new Car()
 
-let nothingMuch: null = null
-
-let nothing: undefined = undefined
-
-// Built in objects
-let now: Date = new Date()
+// Object Literals
+let point: { x: number; y: number } = {
+  x: 10,
+  y: 20,
+}
