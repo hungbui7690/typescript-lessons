@@ -1,7 +1,9 @@
 /*
-  Understanding Inference
-  pic: inference
+  The Any Type - When to use annotations
+  - pic: inference, any
 */
 
-// if we declare and initialize at the same time > TS will figure out the type for us
-let orange = 5
+// Functions that returns the 'any' type
+const json = '{"x" : 10, "y": 20}'
+const coordinates = JSON.parse(json) // hover parse > return any type > we can get many types from this function > check pic: any
+console.log(coordinates) // { x: 10, y: 20 }
