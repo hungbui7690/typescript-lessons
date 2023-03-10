@@ -1,24 +1,14 @@
 /*
-  Tuples in Typescript
-  > pic: tuple
+  Why Tuples
+  - we don't need tuple in JS
 
 */
 
-const drink = {
-  color: 'brown',
-  carbonated: true,
-  sugar: 40,
+// it does not have any meaning
+const carSpecs: [number, number] = [400, 3354]
+
+// object is easy to understand and meaningful
+const carStats = {
+  horsePower: 400,
+  weight: 3354,
 }
-
-// hover > we don't see the format > now, in this array, this can be string OR boolean OR number
-const pepsi = ['brown', true, 40]
-pepsi[0] = 40
-pepsi[2] = 'brown' // (***) if we do this, we list information
-
-// (***) tuple > have the order
-const coke: [string, boolean, number] = ['brown', true, 40]
-coke[0] = 40 // err
-
-// (***) tuple: alternative method > use TYPE ALIAS === type keyword
-type Drink = [string, boolean, number]
-const tea = ['brown', false, 0]
