@@ -1,28 +1,26 @@
 /*
-  Interfaces
-  - pic
-  
-////////////////////////////
-
-  Long Type Annotations
+  Fixing Long Annotations with Interfaces
 
 */
+
+// (***) interface === generic type
+interface Vehicle {
+  name: string
+  year: number
+  broken: boolean
+}
+
+// (***) use interface here
+const printVehicle = (vehicle: Vehicle): void => {
+  console.log(`Name: ${vehicle.name}`)
+  console.log(`Year: ${vehicle.year}`)
+  console.log(`Broken: ${vehicle.broken}`)
+}
 
 const oldCivic = {
   name: 'civic',
   year: 2000,
   broken: true,
-}
-
-// (***) type is has so many properties > hard to read
-const printVehicle = (vehicle: {
-  name: string
-  year: number
-  broken: boolean
-}): void => {
-  console.log(`Name: ${vehicle.name}`)
-  console.log(`Year: ${vehicle.year}`)
-  console.log(`Broken: ${vehicle.broken}`)
 }
 
 printVehicle(oldCivic)
