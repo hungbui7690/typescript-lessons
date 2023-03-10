@@ -1,18 +1,15 @@
 /*
-  Why Typed Arrays
+  Multiple Types in Arrays
   
 */
 
-const carMakers: string[] = ['ford', 'toyota', 'chevy']
+// Flexible types
+const importantDates = [new Date(), '2030-10-10'] // hover > string | Date
 
-// Help with inference when extracting values
-const car = carMakers[0] // hover
-const myCar = carMakers.pop()
+const importantDatesX: (string | Date)[] = [new Date(), '2030-10-10']
+importantDatesX.push(new Date())
+importantDatesX.push('2033-01-01')
 
-// Prevent incompatible values
-carMakers.push(100) // error
-
-// help with 'map
-carMakers.map((car: string): string => {
-  return car // car.[] > only show string methods
-})
+// (***) if empty array > need to have type > otherwise, any
+const fruits = [] // any
+const numbers: number[] = [] // number
