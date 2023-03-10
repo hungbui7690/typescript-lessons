@@ -1,22 +1,19 @@
 /*
-  Fields in Classes P3
+  Fields with Inheritance P1
   
 */
 
 class Vehicle {
-  // (***) private/protected > cannot access outside of class
-  constructor(private color: string) {}
+  constructor(public color: string) {}
 
   protected honk(): void {
     console.log('beep!!')
   }
 }
 
-const vehicle = new Vehicle('orange')
-console.log(vehicle.color) // (***) err
-
 /////////////////////////
 
+// (***) write now, we don't have constructor in Car class > every instance is created > called Vehicle constructor
 class Car extends Vehicle {
   private drive(): void {
     console.log(`bup bup bup...`)
@@ -26,3 +23,6 @@ class Car extends Vehicle {
     this.honk()
   }
 }
+
+const car = new Car('orange')
+console.log(car.color)
