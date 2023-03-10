@@ -1,14 +1,6 @@
 /*
-  Executing TS Code
-  - create index.ts
-
-  - to run: 
-    + tsc index.ts
-    + node index.js
-  
-  - or to combine the 2 commands:
-    + ts-node index.ts
-
+  One Quick Change
+  - return undefined > no error
   
 */
 
@@ -17,5 +9,15 @@ import axios from 'axios'
 const url = 'https://jsonplaceholder.typicode.com/todos/1'
 
 axios.get(url).then((resp) => {
-  console.log(resp.data)
+  const todo = resp.data
+
+  const ID = todo.ID // undefined
+  const title = todo.Title // undefined
+  const finished = todo.finished // undefined
+
+  console.log(`
+    The Toto with ID: ${ID}
+    Has a title of: ${title}
+    Is it finished? ${finished}
+  `)
 })
