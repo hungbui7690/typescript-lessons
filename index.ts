@@ -1,7 +1,6 @@
 /*
-  Catching Error with TS P2
-  - fix the error 
-  
+  Catching More Errors P1
+
 */
 
 import axios from 'axios'
@@ -17,13 +16,19 @@ interface Todo {
 axios.get(url).then((resp) => {
   const todo = resp.data as Todo
 
-  const ID = todo.id
+  const id = todo.id
   const title = todo.title
-  const finished = todo.completed // (***)
+  const completed = todo.completed
 
-  console.log(`
-    The Toto with ID: ${ID}
-    Has a title of: ${title}
-    Is it finished? ${finished}
-  `)
+  // (2) if we pass with incorrect order of params
+  logTodo(id, completed, title)
 })
+
+// (1)
+const logTodo = (id, title, completed) => {
+  console.log(`
+  The Toto with ID: ${id}
+  Has a title of: ${title}
+  Is it finished? ${completed}
+`)
+}
