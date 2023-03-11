@@ -1,6 +1,18 @@
 <html>
-  <body>
-    <!-- (***) we use [ts] extension > parcel will parse and replace this script tag to [js] -->
+  <head>
+    <title>Simple Map</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+    <!-- (***) this must run first -->
     <script type="module" src="./src/index.ts"></script>
+  </head>
+  <body>
+    <div id="map" style="height: 100%"></div>
+
+    <!-- must have "defer": otherwise the browser not to wait for the script. Instead, the browser will continue to process the HTML, build DOM. The script loads “in the background”, and then runs when the DOM is fully built > NO "async"-->
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBNLrJhOMz6idD05pzfn5lhA-TAw-mAZCU&callback=initMap"
+      defer
+    ></script>
   </body>
 </html>
