@@ -1,16 +1,29 @@
+import { User } from './User'
+import { Company } from './Company'
+
 export class CustomMap {
-  // (1) private
   private googleMap: google.maps.Map
 
-  // (2) pass ref to element we want to place the map in
   constructor(divId: string) {
     this.googleMap = new google.maps.Map(
-      // (***) now we can use any div
       document.getElementById(divId) as HTMLElement,
       {
-        zoom: 4,
-        center: { lat: -2.344, lng: 131.031 },
+        zoom: 1,
+        center: { lat: -22.344, lng: 131.031 },
       }
     )
   }
+
+  // (***) we can use class as type
+  addUserMarker(user: User): void {
+    new google.maps.Marker({
+      map: this.googleMap,
+      position: {
+        lat: user.location.lat,
+        lng: user.location.lng,
+      },
+    })
+  }
+
+  addCompanyMarker(user: Company): void {}
 }

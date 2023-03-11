@@ -1,26 +1,25 @@
 /// <reference types="@types/google.maps" />
 
 /*
-  Hiding Functionality
-  - pic > we can see that right now, we expose every methods of google map in index.ts
-    > and those methods can break our app
-    > we should create a class to hide the functionalities of google maps
-  
-  (1) create CustomMap.ts
+  Adding Markers
+
+  (1) CustomMap
 */
 
-// (2)
 import { CustomMap } from './CustomMap'
+import { User } from './User'
 
 function initMap(): void {
-  // (3)
-  const map = new CustomMap('map')
+  const user = new User()
+  const customMap = new CustomMap('map')
+
+  // (***)
+  customMap.addUserMarker(user)
 }
 
 //////////////////////////////
-// if we create an interface in this file > it is just scoped to this module only > we use "declare global" to make it global > global namespace
-// https://www.typescriptlang.org/docs/handbook/declaration-files/templates/global-modifying-module-d-ts.html
-
+// add function to window object
+//////////////////////////////
 declare global {
   interface Window {
     initMap: () => void
