@@ -14,7 +14,6 @@ export class CustomMap {
     )
   }
 
-  // (***) we can use class as type
   addUserMarker(user: User): void {
     new google.maps.Marker({
       map: this.googleMap,
@@ -25,5 +24,14 @@ export class CustomMap {
     })
   }
 
-  addCompanyMarker(user: Company): void {}
+  // (***)
+  addCompanyMarker(company: Company): void {
+    new google.maps.Marker({
+      map: this.googleMap,
+      position: {
+        lat: company.location.lat,
+        lng: company.location.lng,
+      },
+    })
+  }
 }
