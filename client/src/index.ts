@@ -1,10 +1,12 @@
 /// <reference types="@types/google.maps" />
 
 /*
-  Duplication Code
-  - now if we create addCompanyMarker > it will have the same structure as addUserMarker()
-    > duplicated codes > fix in next lesson
-
+  One Possible Solution
+  - this solution works, but it has downside > pic: downside
+    > later, if we want to add more class > we have to modify the definition + import in TS
+    > the signature of the methods will be come huge as we have more classes 
+    > also, it will create type coupling between Map.ts & the others
+  
   (1) CustomMap
 */
 
@@ -17,8 +19,8 @@ function initMap(): void {
   const company = new Company()
   const customMap = new CustomMap('map')
 
-  customMap.addUserMarker(user)
-  customMap.addCompanyMarker(company) // (***)
+  customMap.addMarker(user)
+  customMap.addMarker(company) // (***)
 }
 
 //////////////////////////////
