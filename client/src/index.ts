@@ -1,22 +1,17 @@
 /*
-  A Simple Sorting Algorithm
-  - pic
-  - Bubble Sort 
-    > find the largest > then swap 
-    > 2nd iteration, don't touch the last item (sorted)
-
-////////////////////////////////////////
-
-  Sorter Scaffolding P1
+  Sorter Scaffolding P2
+  - another way to initialize 
 
 */
 
 class Sorter {
-  collection: number[] // we can initialize in the same line or use constructor()
+  constructor(public collection: number[]) {} // *** just need this one line
 
-  constructor(collection: number[]) {
-    this.collection = collection
-  }
+  sort(): void {} // ***
 }
 
 const sorter = new Sorter([10, 3, -5, 0])
+
+// ***
+sorter.sort()
+console.log(sorter.collection)
