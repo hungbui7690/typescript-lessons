@@ -1,19 +1,18 @@
 /*
-  The Big Reveal
-  - pic
+  Sorting Arbitrary Collections
+  - in this lecture, we will see the power of interface 
 
-//////////////////////////////
+  > create CharactersCollection.ts
+  > skim through Sorter.ts
 
-  Interface Definition
-  - Sorter.ts
 
 */
 
 import { Sorter } from './Sorter'
-import { NumbersCollection } from './NumbersCollection'
+import { CharactersCollection } from './CharactersCollection' // ***
 
-const numbersCollection = new NumbersCollection([10, 3, -5, 0, 99])
-const sorter = new Sorter(numbersCollection)
+const charactersCollection = new CharactersCollection('XAaDAz')
+const sorter = new Sorter(charactersCollection)
 
 sorter.sort()
 console.log(sorter.collection)
