@@ -1,19 +1,22 @@
 /*
-  Concurrent Compilation and Execution
-  - node .\build\index.js
+  A Simple Sorting Algorithm
+  - pic
+  - Bubble Sort 
+    > find the largest > then swap 
+    > 2nd iteration, don't touch the last item (sorted)
 
-    > npm init -y
-    > npm install nodemon concurrently
+////////////////////////////////////////
 
-  - package.json
-      "start:build": "tsc -w",
-      "start:run": "nodemon build/index.js",
-      "start": "concurrently npm:start:*"
+  Sorter Scaffolding P1
 
 */
 
-console.log('hello world')
+class Sorter {
+  collection: number[] // we can initialize in the same line or use constructor()
 
-const logSomething = () => {
-  console.log('something')
+  constructor(collection: number[]) {
+    this.collection = collection
+  }
 }
+
+const sorter = new Sorter([10, 3, -5, 0])
