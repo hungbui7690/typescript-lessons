@@ -1,11 +1,16 @@
 /// <reference types="@types/google.maps" />
 
 /*
-  Restricting Access with Interfaces
-  - pic: interface
-  - previous lecture > CustomMap needs to satisfy the User & Company structure 
-    > now we will invert that > we want to make the User & Company satisfy the CustomMap 
-    > use interface
+  Implicit Type Checks
+  - bts, TS will check if user/company satisfy addMarker()
+  
+//////////////////////////////////
+
+  Showing Popup Windows
+  - pic: we want to click on the marker to show the info of the location
+    > https://developers.google.com/maps/documentation/javascript/infowindows
+
+  - go to maps definition file and look for InfoWindow
 
   - CustomMap.ts
 
@@ -20,6 +25,7 @@ function initMap(): void {
   const company = new Company()
   const customMap = new CustomMap('map')
 
+  // ***
   customMap.addMarker(user)
   customMap.addMarker(company)
 }

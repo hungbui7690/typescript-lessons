@@ -1,4 +1,3 @@
-// *** Instructions to every other class on how they can be an argument to addMarker()
 interface Mappable {
   location: {
     lat: number
@@ -19,14 +18,23 @@ export class CustomMap {
     )
   }
 
-  // *** use the interface
   addMarker(mappable: Mappable): void {
-    new google.maps.Marker({
+    // *** assign to variable
+    const marker = new google.maps.Marker({
       map: this.googleMap,
       position: {
         lat: mappable.location.lat,
         lng: mappable.location.lng,
       },
+    })
+
+    // ***
+    marker.addListener('click', () => {
+      const infoWindow = new google.maps.InfoWindow({
+        content: 'Hi there!',
+      })
+
+      infoWindow.open(this.googleMap, marker)
     })
   }
 }
