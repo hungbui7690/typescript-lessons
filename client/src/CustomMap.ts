@@ -4,7 +4,6 @@ interface Mappable {
     lng: number
   }
 
-  // ***
   markerContent(): string
 }
 
@@ -22,7 +21,6 @@ export class CustomMap {
   }
 
   addMarker(mappable: Mappable): void {
-    // *** assign to variable
     const marker = new google.maps.Marker({
       map: this.googleMap,
       position: {
@@ -31,10 +29,9 @@ export class CustomMap {
       },
     })
 
-    // ***
     marker.addListener('click', () => {
       const infoWindow = new google.maps.InfoWindow({
-        content: 'Hi there!',
+        content: mappable.markerContent(), // ***
       })
 
       infoWindow.open(this.googleMap, marker)

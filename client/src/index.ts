@@ -1,9 +1,10 @@
 /// <reference types="@types/google.maps" />
 
 /*
-  Updating Interface Definitions P1
-  - depends on each object, will display different message on infoWindow
-
+  Updating Interface Definitions P2
+  - User.ts
+  - Company.ts
+  - CustomMap.ts
 */
 
 import { CustomMap } from './CustomMap'
@@ -15,7 +16,6 @@ function initMap(): void {
   const company = new Company()
   const customMap = new CustomMap('map')
 
-  // *** err
   customMap.addMarker(user)
   customMap.addMarker(company)
 }
