@@ -1,13 +1,15 @@
 /*
-  Configuring the TS Compiler P2
-  - src/ : .ts code
-  - build/ : .js code
+  Concurrent Compilation and Execution
+  - node .\build\index.js
 
-  > tsc --init
-    + "outDir": "./build"
-    + "rootDir": "./src"
+    > npm init -y
+    > npm install nodemon concurrently
 
-  > tsc -w
+  - package.json
+      "start:build": "tsc -w",
+      "start:run": "nodemon build/index.js",
+      "start": "concurrently npm:start:*"
+
 */
 
 console.log('hello world')
