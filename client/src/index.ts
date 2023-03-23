@@ -1,10 +1,8 @@
 /*
-  Sorting Arbitrary Collections
-  - in this lecture, we will see the power of interface 
-
-  > create CharactersCollection.ts
-  > skim through Sorter.ts
-
+  Linked List Implementation
+  - pic
+  - create LinkedList.ts
+    > LL must follow the interface > need to have: length, compare(), swap()
 
 */
 
