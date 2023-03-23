@@ -1,9 +1,8 @@
 import { Sorter } from './Sorter'
 
-// *** extends
 export class NumbersCollection extends Sorter {
   constructor(public data: number[]) {
-    super() // *** require 1 argument for Sorter() > but we don't care about collection anymore
+    super()
   }
 
   compare(leftIndex: number, rightIndex: number): boolean {

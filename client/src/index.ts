@@ -1,25 +1,15 @@
 /*
-  Integrating the Sort Method
+  Abstract Classes
   - pic
+  - reason that we need to place sort() in each type of collection is because it's a pain when using sort() right now: 
+    + we need to create collection 
+    + we need to create sorter and pass collection into it 
+    + then we call sort() on sorter 
 
-///////////////////////////////////////
+////////////////////////////////////
 
-  Issues with Inheritance
-  - NumbersCollection.ts
+  Why Use Abstract Classes
+
+  > Sorter.ts
 
 */
-
-import { Sorter } from './Sorter'
-import { LinkedList } from './LinkedList'
-
-const ll = new LinkedList()
-ll.add(9)
-ll.add(3)
-ll.add(2)
-ll.add(-500)
-ll.add(-3)
-
-const sorter = new Sorter(ll)
-
-sorter.sort()
-ll.print()
