@@ -1,16 +1,25 @@
 /*
-  Linked List Implementation
+  Integrating the Sort Method
   - pic
-  - create LinkedList.ts
-    > LL must follow the interface > need to have: length, compare(), swap()
+
+///////////////////////////////////////
+
+  Issues with Inheritance
+  - NumbersCollection.ts
 
 */
 
 import { Sorter } from './Sorter'
-import { CharactersCollection } from './CharactersCollection' // ***
+import { LinkedList } from './LinkedList'
 
-const charactersCollection = new CharactersCollection('XAaDAz')
-const sorter = new Sorter(charactersCollection)
+const ll = new LinkedList()
+ll.add(9)
+ll.add(3)
+ll.add(2)
+ll.add(-500)
+ll.add(-3)
+
+const sorter = new Sorter(ll)
 
 sorter.sort()
-console.log(sorter.collection)
+ll.print()
