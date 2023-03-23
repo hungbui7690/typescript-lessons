@@ -1,39 +1,39 @@
 /*
-  Two Huge Issues
-  - now, this algo works with only number[]
-  - if, collection: string > won't work
-  - pic:
-    + string is immutable
-    + comparison does not work well
+  Type Guards
+  - pic
 
 //////////////////////////////////
 
-  Typescript is Really Smart
-  - pic
+  Why This Is Bad
+  - if we add 1 more type (later) > we need to add more logic to sort() 
 
 
 */
 
 class Sorter {
-  // *** collection: number[] | string
   constructor(public collection: number[] | string) {}
 
   sort(): void {
     const { length } = this.collection
 
-    // this.collection. // *** we can see the common methods & properties of number[] & string
-
     for (let i = 0; i < length; i++) {
       for (let j = 0; j < length - i; j++) {
-        // *** number[]
-        if (this.collection[j] > this.collection[j + 1]) {
-          const temp = this.collection[j]
-          this.collection[j] = this.collection[j + 1] // err because string does not support update > hover to see the error
-          this.collection[j + 1] = temp
+        // this.collection. // *** just show the common methods > number[] | string
+
+        // *** type checking
+        if (this.collection instanceof Array) {
+          if (this.collection[j] > this.collection[j + 1]) {
+            // this.collection. // *** show all array methods > number[]
+
+            const temp = this.collection[j]
+            this.collection[j] = this.collection[j + 1]
+            this.collection[j + 1] = temp
+          }
         }
 
-        // *** string
-        // ~~~ logic to compare and swap characters in a string
+        // *** type checking
+        if (typeof this.collection === 'string') {
+        }
       }
     }
   }
