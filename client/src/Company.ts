@@ -1,7 +1,6 @@
 import { faker } from '@faker-js/faker'
 import { Mappable } from './CustomMap' // ***
 
-// ***
 export class Company implements Mappable {
   companyName: string
   catchPhase: string
@@ -9,6 +8,7 @@ export class Company implements Mappable {
     lat: number
     lng: number
   }
+  color: string // ***
 
   constructor() {
     this.companyName = faker.company.name()

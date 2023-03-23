@@ -1,9 +1,8 @@
 /// <reference types="@types/google.maps" />
 
 /*
-  Optional Implements Clauses P2
-  - export interface & implements in the classes
-    > right now, error is shown in the correct place > in both User.ts & Company.ts
+  Optional Implements Clauses P3
+
 */
 
 import { CustomMap } from './CustomMap'
