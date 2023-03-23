@@ -17,7 +17,6 @@ export class Company {
     }
   }
 
-  // ***
   markerContent(): string {
     return `
       <div>

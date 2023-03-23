@@ -1,10 +1,10 @@
 /// <reference types="@types/google.maps" />
 
 /*
-  Updating Interface Definitions P2
-  - User.ts
-  - Company.ts
-  - CustomMap.ts
+  Optional Implements Clauses P1
+  - add color: string to interface
+    > now error show below, which is kind of not correct
+
 */
 
 import { CustomMap } from './CustomMap'
