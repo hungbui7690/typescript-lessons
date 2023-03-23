@@ -1,17 +1,28 @@
 /*
-  Sorter Scaffolding P2
-  - another way to initialize 
+  Sorting Implementation
 
 */
 
 class Sorter {
-  constructor(public collection: number[]) {} // *** just need this one line
+  constructor(public collection: number[]) {}
 
-  sort(): void {} // ***
+  // ***
+  sort(): void {
+    const { length } = this.collection // number
+
+    for (let i = 0; i < length; i++) {
+      for (let j = 0; j < length - i; j++) {
+        if (this.collection[j] > this.collection[j + 1]) {
+          const temp = this.collection[j]
+          this.collection[j] = this.collection[j + 1]
+          this.collection[j + 1] = temp
+        }
+      }
+    }
+  }
 }
 
 const sorter = new Sorter([10, 3, -5, 0])
 
-// ***
 sorter.sort()
 console.log(sorter.collection)
