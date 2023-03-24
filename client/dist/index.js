@@ -1,7 +1,7 @@
 "use strict";
 /*
-  Variable Types with Generics P5
-  - CsvFileReader.ts
+  Applying a Type to a Generic Class P1
+  - test.ts
 
 */
 Object.defineProperty(exports, "__esModule", { value: true });

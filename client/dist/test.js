@@ -1,12 +1,13 @@
 "use strict";
-// *** Generic Type
 class HoldAnything {
+    // ***
+    add(a) {
+        return a;
+    }
 }
-// type === number
 const holdNumber = new HoldAnything();
 holdNumber.data = 123;
-// type === string
+holdNumber.add(4); // ***
 const holdString = new HoldAnything();
 holdString.data = 'hello';
-// without the type > type === unknown
-const holdData = new HoldAnything();
+holdString.add('hi there'); // ***
