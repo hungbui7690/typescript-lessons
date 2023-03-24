@@ -1,13 +1,6 @@
 /*
-  Converting Date Strings to Dates P1
-  - pic 
-
-  - 10/08/2018
-    > split into month, day, year 
-    > then convert
-
-  - create utils.ts
-    > test: ts-node src/utils.ts
+  Converting Date Strings to Dates P2
+  - utils.ts
 
 */
 

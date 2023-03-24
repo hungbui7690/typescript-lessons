@@ -1,9 +1,6 @@
-// self implementation
+// *** instructor
 export const dateStringToDate = (dateString: string): Date => {
-  const dateParts = dateString.split('/')
-  const [day, month, year] = dateParts
+  const dateParts = dateString.split('/').map((part: string) => parseInt(part))
 
-  return new Date(`${day}/${month}/${year}`)
+  return new Date(dateParts[2], dateParts[1] - 1, dateParts[0])
 }
-
-console.log(dateStringToDate('10/08/2018'))
