@@ -5,7 +5,6 @@ const express_1 = require("express");
 const router = (0, express_1.Router)();
 exports.router = router;
 router.get('/login', (req, res) => {
-    // *** change attribute name
     res.send(`
     <form method='POST'>
       <div>
@@ -20,15 +19,17 @@ router.get('/login', (req, res) => {
     </form>
   `);
 });
-// *** req: RequestWithBody
+// by default req.sessions = undefined because req object does not have sessions
 router.post('/login', (req, res) => {
     const { email, password } = req.body;
     // ***
-    if (email) {
-        return res.send(email.toUpperCase());
+    if (email && password && email === 'hi' && password === 'hi') {
+        // mark this person as logged in
+        req.session = { loggedIn: true };
+        // redirect
+        res.redirect('/');
     }
     else {
-        return res.send('You must provide an email');
+        return res.send('Invalid email or password');
     }
-    res.send(email.toUpperCase());
 });
