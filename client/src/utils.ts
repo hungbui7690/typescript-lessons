@@ -1,4 +1,3 @@
-// *** instructor
 export const dateStringToDate = (dateString: string): Date => {
   const dateParts = dateString.split('/').map((part: string) => parseInt(part))
 
