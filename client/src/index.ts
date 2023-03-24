@@ -1,28 +1,14 @@
 /*
-  When to Use Enums
-  - pic
-    > use for small set of values
-
-////////////////////////////////////
-
-  Extracting CSV Reading P1 
-  - check list of issues: 
-    > [Source of data is hardcoded]
-      > below
-  - pic: one possible solution is to create a class
-    > next lesson
+  Extracting CSV Reading P2
+  - create CsvFileReader.ts
 
 */
 
-import fs from 'fs'
+import { CsvFileReader } from './CsvFileReader'
 
-// *** football.csv is hardcoded > if we have another csv file > we need to restructure this function > we need to find the way to make this reusable
-const matches = fs
-  .readFileSync('football.csv', {
-    encoding: 'utf-8',
-  })
-  .split('\n')
-  .map((row: string): string[] => row.split(','))
+// ***
+const reader = new CsvFileReader('football.csv')
+reader.read() // do not need to store into anything
 
 enum MatchResult {
   HomeWin = 'H',
@@ -31,7 +17,8 @@ enum MatchResult {
 }
 
 let manUnitedWins = 0
-for (let match of matches) {
+// *** use reader.data
+for (let match of reader.data) {
   if (match[1] === 'Man United' && match[5] === MatchResult.HomeWin) {
     manUnitedWins++
   } else if (match[2] === 'Man United' && match[5] === MatchResult.AwayWin) {

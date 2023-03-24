@@ -1,31 +1,14 @@
 "use strict";
 /*
-  When to Use Enums
-  - pic
-    > use for small set of values
-
-////////////////////////////////////
-
-  Extracting CSV Reading P1
-  - check list of issues:
-    > [Source of data is hardcoded]
-      > below
-  - pic: one possible solution is to create a class
-    > next lesson
+  Extracting CSV Reading P2
+  - create CsvFileReader.ts
 
 */
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-const fs_1 = __importDefault(require("fs"));
-// *** football.csv is hardcoded > if we have another csv file > we need to restructure this function > we need to find the way to make this reusable
-const matches = fs_1.default
-    .readFileSync('football.csv', {
-    encoding: 'utf-8',
-})
-    .split('\n')
-    .map((row) => row.split(','));
+const CsvFileReader_1 = require("./CsvFileReader");
+// ***
+const reader = new CsvFileReader_1.CsvFileReader('football.csv');
+reader.read(); // do not need to store into anything
 var MatchResult;
 (function (MatchResult) {
     MatchResult["HomeWin"] = "H";
@@ -33,7 +16,8 @@ var MatchResult;
     MatchResult["Draw"] = "D";
 })(MatchResult || (MatchResult = {}));
 let manUnitedWins = 0;
-for (let match of matches) {
+// *** use reader.data
+for (let match of reader.data) {
     if (match[1] === 'Man United' && match[5] === MatchResult.HomeWin) {
         manUnitedWins++;
     }
