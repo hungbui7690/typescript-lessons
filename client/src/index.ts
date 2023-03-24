@@ -1,18 +1,10 @@
 /*
-  App Overview
-  - pic
+  Type Definition Files Again P1
+  - check csv file > each row represents a football match
+  - will use nodeJS standard library to load data
+    > https://nodejs.org/dist/latest-v18.x/docs/api/fs.html
+      > readFileSync()
 
-    > npm init -y
-    > tsc --init
-      + setup rootDir + outDir
-    > npm install nodemon concurrently 
-  
-  - package.json: 
-      "scripts": {
-          "start:build": "tsc --w",
-          "start:run": "nodemon dist/index.js",
-          "start": "concurrently npm:start:*"
-        },
 */
 
-console.log('Hello World')
+import { readFileSync } from 'fs' // error > this is because TS reports the wrong error for us > pic
