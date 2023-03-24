@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/node": "^18.15.6",
     "abbrev": "^1.1.1",
     "ansi-regex": "^5.0.1",
     "ansi-styles": "^4.3.0",
