@@ -3,7 +3,6 @@ import { MatchResult } from './MatchResult'
 
 type MatchData = [Date, string, string, number, number, MatchResult, string]
 
-// *** abstract
 export abstract class CsvFileReader {
   data: MatchData[] = []
   constructor(public filename: string) {}
@@ -17,5 +16,5 @@ export abstract class CsvFileReader {
       .map(this.mapRow)
   }
 
-  abstract mapRow(row: string[]): MatchData // ***
+  abstract mapRow(row: string[]): MatchData
 }
