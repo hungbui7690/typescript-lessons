@@ -1,13 +1,17 @@
 /*
-  Why Doesn't Express Play Nicely with TS
+  Issues with Type Definition Files
   - pic 
-  - if we comment the body parser middleware 
-    > req.body.email === req.undefined.email > error
-  - middleware has the jobs of receive Request, Response, NextFunction Object as parameter > then add / remove / modify those properties in those objects
-  - TS job is to manage the types of those objects 
-    > but the middleware keeps adding/removing properties > how TS can handle that 
+  - loginRoutes.ts
 
-  (***) check loginRoutes.ts
+  - modify d.ts file 
+    From: 
+    + body: ReqBody
+    To: 
+    + body: {[key: string] : string | undefined};
+
+  > we need "type def file" to work with TS > but if TDF is not good > it does not help us too much 
+
+  (***) need to change back TDF to default
 
 */
 
@@ -16,7 +20,7 @@ const app = express()
 import { router } from './routes/loginRoutes'
 import bodyParser = require('body-parser')
 
-// app.use(bodyParser.urlencoded({ extended: true })) // *** comment this line
+app.use(bodyParser.urlencoded({ extended: true }))
 app.use(router)
 
 app.listen(5000, () => {
