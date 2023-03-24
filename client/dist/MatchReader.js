@@ -6,9 +6,8 @@ class MatchReader {
     constructor(reader) {
         this.reader = reader;
     }
-    // ***
     load() {
-        this.reader.read(); // *** reader here === CsvFileReader
+        this.reader.read();
         this.matches = this.reader.data.map((row) => {
             return [
                 (0, utils_1.dateStringToDate)(row[0]),

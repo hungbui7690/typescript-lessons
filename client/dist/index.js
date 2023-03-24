@@ -1,20 +1,35 @@
 "use strict";
 /*
-  Updating Reader References
-  - MatchReader.ts
-  - index.ts
+  Inheritance vs Composition
+  - pic
+
+////////////////////////////////////////
+
+  More on Inheritance vs Composition
+  - pic
+
+////////////////////////////////////////
+
+  A Huge Misconception Around "Composition"
+  - *** important
+
+////////////////////////////////////////
+
+  Goal Moving Forward
+  - pic
+  - issues below
 
 */
 Object.defineProperty(exports, "__esModule", { value: true });
 const CsvFileReader_1 = require("./CsvFileReader");
 const MatchReader_1 = require("./MatchReader");
 const MatchResult_1 = require("./MatchResult");
-// ***
 const csvFileReader = new CsvFileReader_1.CsvFileReader('football.csv');
 const matchReader = new MatchReader_1.MatchReader(csvFileReader);
 matchReader.load();
+///////////////////////////////////
+// *** 3 issues are here
 let manUnitedWins = 0;
-// *** matchReader.matches
 for (let match of matchReader.matches) {
     if (match[1] === 'Man United' && match[5] === MatchResult_1.MatchResult.HomeWin) {
         manUnitedWins++;
