@@ -1,13 +1,20 @@
 /*
-  Applying a Type to a Generic Class P2
-  - MatchReader.ts
+  Alternate Refactor
+  - pic > we use interface instead of abstract class
+
+////////////////////////////////////////////
+
+  InterfaceBased Approach
+  - backup abstract approach in "abstract approach"/ folder
+  - refactor MatchReader.ts
+    > hold interface & class
 
 */
 
-import { MatchReader } from './MatchReader' // ***
+import { MatchReader } from './MatchReader'
 import { MatchResult } from './MatchResult'
 
-const reader = new MatchReader('football.csv') // ***
+const reader = new MatchReader('football.csv')
 reader.read()
 
 let manUnitedWins = 0
