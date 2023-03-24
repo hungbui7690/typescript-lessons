@@ -1,9 +1,6 @@
 /*
-  Losing Dataset Context
-    [Issues] pic
-    - Magic String Comparison: match[5] === 'H'
-      > now we can understand this > but later, or another dev looks at this > he cannot understand unless he opens the csv file to check
-
+  Using Enums P1
+  - enumeration
 
 */
 
@@ -16,16 +13,18 @@ const matches = fs
   .split('\n')
   .map((row: string): string[] => row.split(','))
 
-// *** one possible way to fix:
-const homeWin = 'H' // use below
-const awayWin = 'A'
-const draw = 'D' // this option is grey out > another dev can go here and delete in since it's unused > next lesson
+// *** in JS, object has a tons of usage > in this case, it's unclear
+const MatchResult = {
+  HomeWin: 'H',
+  AwayWin: 'A',
+  Draw: 'D', // not grey out anymore
+}
 
 let manUnitedWins = 0
 for (let match of matches) {
-  if (match[1] === 'Man United' && match[5] === homeWin) {
+  if (match[1] === 'Man United' && match[5] === MatchResult.HomeWin) {
     manUnitedWins++
-  } else if (match[2] === 'Man United' && match[5] === awayWin) {
+  } else if (match[2] === 'Man United' && match[5] === MatchResult.AwayWin) {
     manUnitedWins++
   }
 }
