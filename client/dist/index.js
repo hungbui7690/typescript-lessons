@@ -1,12 +1,11 @@
 "use strict";
 /*
-  Running an Analysis
-  - 10/08/2018  Man United  Leicester       2,1,  [H]   A Marriner
-  - 11/08/2018  Fulham      Crystal Palace  0,2,  [A]   M Dean
-    > H: home wins
-    > A: away wins
+  Losing Dataset Context
+    [Issues] pic
+    - Magic String Comparison: match[5] === 'H'
+      > now we can understand this > but later, or another dev looks at this > he cannot understand unless he opens the csv file to check
 
-  - pic
+
 */
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
@@ -18,16 +17,18 @@ const matches = fs_1.default
     encoding: 'utf-8',
 })
     .split('\n')
-    .map((row) => row.split(',')); // *** previous lecture, we do [row] === NOT correct > need to use split()
-// *** analyze code
+    .map((row) => row.split(','));
+// *** one possible way to fix:
+const homeWin = 'H'; // use below
+const awayWin = 'A';
+const draw = 'D'; // this option is grey out > another dev can go here and delete in since it's unused > next lesson
 let manUnitedWins = 0;
 for (let match of matches) {
-    if (match[1] === 'Man United' && match[5] === 'H') {
+    if (match[1] === 'Man United' && match[5] === homeWin) {
         manUnitedWins++;
     }
-    else if (match[2] === 'Man United' && match[5] === 'A') {
+    else if (match[2] === 'Man United' && match[5] === awayWin) {
         manUnitedWins++;
     }
 }
-// *** generate report
 console.log(`Man United won ${manUnitedWins} games`);
