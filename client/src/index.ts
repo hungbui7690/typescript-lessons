@@ -1,7 +1,6 @@
 /*
-  Variable Types with Generics P1
-  - pic
-  - create test.ts (just for example)
+  Variable Types with Generics P2
+  - create test.ts 
 
 */
 
