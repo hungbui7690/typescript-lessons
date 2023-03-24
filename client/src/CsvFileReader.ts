@@ -1,20 +1,18 @@
 import fs from 'fs'
+import { dateStringToDate } from './utils'
 
-import { dateStringToDate } from './utils' // ***
+import { MatchResult } from './MatchResult' // ***
 
 export class CsvFileReader {
   data: string[][] = []
-
   constructor(public filename: string) {}
-
   read(): void {
     this.data = fs
       .readFileSync(this.filename, {
         encoding: 'utf-8',
       })
       .split('\n')
-      .map((row: string): string[] => row.split(',')) // this will return array of rows
-      // temporary use :any
+      .map((row: string): string[] => row.split(','))
       .map((row: string[]): any => {
         return [
           dateStringToDate(row[0]),
@@ -22,9 +20,8 @@ export class CsvFileReader {
           row[2],
           parseInt(row[3]),
           parseInt(row[4]),
-          row[5], // *** next lesson
-          row[6], // *** next lesson
-          row[7],
+          row[5] as MatchResult, // *** type assertion: overwrite TS behavior
+          row[6],
         ]
       })
   }
