@@ -1,10 +1,22 @@
 /*
-  Using Enums P2
+  When to Use Enums
+  - pic
+    > use for small set of values
+
+////////////////////////////////////
+
+  Extracting CSV Reading P1 
+  - check list of issues: 
+    > [Source of data is hardcoded]
+      > below
+  - pic: one possible solution is to create a class
+    > next lesson
 
 */
 
 import fs from 'fs'
 
+// *** football.csv is hardcoded > if we have another csv file > we need to restructure this function > we need to find the way to make this reusable
 const matches = fs
   .readFileSync('football.csv', {
     encoding: 'utf-8',
@@ -12,18 +24,10 @@ const matches = fs
   .split('\n')
   .map((row: string): string[] => row.split(','))
 
-// *** use enum: use for small set > signal to other devs that this is a collection of "very closely values"
 enum MatchResult {
   HomeWin = 'H',
   AwayWin = 'A',
   Draw = 'D',
-}
-
-// *** when we create enum > we create a new type > this example function below will return that new type
-const printMatchResult = (): MatchResult => {
-  if (matches[0][5] === 'H') return MatchResult.HomeWin
-
-  return MatchResult.AwayWin
 }
 
 let manUnitedWins = 0
