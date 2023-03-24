@@ -2,9 +2,7 @@ import { Router, Request, Response } from 'express'
 
 const router = Router()
 
-// *** change route + annotation
 router.get('/login', (req: Request, res: Response) => {
-  // build login form
   res.send(`
     <form method='POST'>
       <div>
@@ -20,9 +18,9 @@ router.get('/login', (req: Request, res: Response) => {
   `)
 })
 
-// *** body-parser will parse the form for us
+// *** we see the we comment the bodyParser, but still no error here > if we check Request object > req.body has type of any
 router.post('/login', (req: Request, res: Response) => {
-  const { email, password } = req.body
+  const { email, password } = req.body // type === any
 
   res.send({ email, password })
 })

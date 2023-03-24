@@ -4,9 +4,7 @@ exports.router = void 0;
 const express_1 = require("express");
 const router = (0, express_1.Router)();
 exports.router = router;
-// *** change route + annotation
 router.get('/login', (req, res) => {
-    // build login form
     res.send(`
     <form method='POST'>
       <div>
@@ -21,8 +19,8 @@ router.get('/login', (req, res) => {
     </form>
   `);
 });
-// *** body-parser will parse the form for us
+// *** we see the we comment the bodyParser, but still no error here > if we check Request object > req.body has type of any
 router.post('/login', (req, res) => {
-    const { email, password } = req.body;
+    const { email, password } = req.body; // type === any
     res.send({ email, password });
 });
