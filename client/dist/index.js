@@ -1,6 +1,6 @@
 "use strict";
 /*
-  Variable Types with Generics P3
+  Variable Types with Generics P4
   - create test.ts
 
 */
