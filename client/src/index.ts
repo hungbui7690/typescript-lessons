@@ -1,5 +1,5 @@
 /*
-  Variable Types with Generics P2
+  Variable Types with Generics P3
   - create test.ts 
 
 */

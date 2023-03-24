@@ -1,8 +1,10 @@
 "use strict";
-// *** just need to use one more param
-const add = (a, b) => {
-    return a + b;
-};
-add(10, 1);
-add(10, 2);
-add(10, 3);
+class HoldNumber {
+}
+// *** silly
+class HoldString {
+}
+const holdNumber = new HoldNumber();
+holdNumber.data = 123;
+const holdString = new HoldString();
+holdString.data = 'hello';
