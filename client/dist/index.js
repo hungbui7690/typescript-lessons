@@ -1,22 +1,17 @@
 "use strict";
 /*
-  Not Done with FileReader Yet
-  - Recall, we create CsvFileReader.ts because we want to reuse later in the future
-    > but right now, if we look at it > there's no way for us to reuse later
-    > because the structure of data of different csv file may not match to this football.csv [Date, string, string, number, number, MatchResult, string]
-    > we will try to refactor it to make it reusable
+  Creating Abstract Class
+  - create MatchReader.ts
 
-////////////////////////////////////////
-
-  Understanding Refactor
-  - pic
-  - we want our class can work on any csv file
+  (***) after done, check CsvFileReader > we want this to work with all types of data
+    > but we still use MatchData in this file
+    > we need to somehow extract MatchData type outside, and don't use any of MatchData in this file
 
 */
 Object.defineProperty(exports, "__esModule", { value: true });
-const CsvFileReader_1 = require("./CsvFileReader");
+const MatchReader_1 = require("./MatchReader");
 const MatchResult_1 = require("./MatchResult");
-const reader = new CsvFileReader_1.CsvFileReader('football.csv');
+const reader = new MatchReader_1.MatchReader('football.csv'); // ***
 reader.read();
 let manUnitedWins = 0;
 for (let match of reader.data) {
