@@ -1,7 +1,8 @@
 import fs from 'fs'
 
-export abstract class CsvFileReader<T> {
-  data: T[] = []
+// *** final version that we want > 100% generic code
+export class CsvFileReader {
+  data: string[][] = [] // ***
 
   constructor(public filename: string) {}
   read(): void {
@@ -11,8 +12,5 @@ export abstract class CsvFileReader<T> {
       })
       .split('\n')
       .map((row: string): string[] => row.split(','))
-      .map(this.mapRow)
   }
-
-  abstract mapRow(row: string[]): T
 }

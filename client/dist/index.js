@@ -1,14 +1,9 @@
 "use strict";
 /*
-  Alternate Refactor
-  - pic > we use interface instead of abstract class
+  Extracting Match References Again
+  - CsvFileReader.ts
+  - MatchReader.ts
 
-////////////////////////////////////////////
-
-  InterfaceBased Approach
-  - backup abstract approach in "abstract approach"/ folder
-  - refactor MatchReader.ts
-    > hold interface & class
 
 */
 Object.defineProperty(exports, "__esModule", { value: true });
