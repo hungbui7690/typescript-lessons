@@ -1,8 +1,7 @@
 import fs from 'fs'
 
-// *** final version that we want > 100% generic code
 export class CsvFileReader {
-  data: string[][] = [] // ***
+  data: string[][] = []
 
   constructor(public filename: string) {}
   read(): void {
