@@ -1,14 +1,15 @@
 /*
-  Reading CSV Files P1
-  - return all matches, which is not good > we need to parse these data > pic > we want to convert to 2D array of strings 
-    > next lessons
+  Reading CSV Files P2
 
 */
 
 import fs from 'fs'
 
-const matches = fs.readFileSync('football.csv', {
-  encoding: 'utf-8', // if we don't add this option > return buffer
-})
+const matches = fs
+  .readFileSync('football.csv', {
+    encoding: 'utf-8',
+  })
+  .split('\n') // ***
+  .map((row: string): string[] => [row]) // *** turn each row in to array
 
-console.log(matches)
+console.log(matches) // now we have [[row1], [row2]... [rowN]] > string[][]
