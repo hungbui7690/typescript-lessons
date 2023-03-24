@@ -1,13 +1,13 @@
 /*
-  Applying a Type to a Generic Class P1
-  - test.ts
+  Applying a Type to a Generic Class P2
+  - MatchReader.ts
 
 */
 
-import { MatchReader } from './MatchReader'
+import { MatchReader } from './MatchReader' // ***
 import { MatchResult } from './MatchResult'
 
-const reader = new MatchReader('football.csv')
+const reader = new MatchReader('football.csv') // ***
 reader.read()
 
 let manUnitedWins = 0

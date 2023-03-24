@@ -1,9 +1,9 @@
 import fs from 'fs'
 import { MatchResult } from './MatchResult'
 
-// *** use T
 export abstract class CsvFileReader<T> {
-  data: T[] = [] // ***
+  data: T[] = []
+
   constructor(public filename: string) {}
   read(): void {
     this.data = fs
@@ -15,5 +15,5 @@ export abstract class CsvFileReader<T> {
       .map(this.mapRow)
   }
 
-  abstract mapRow(row: string[]): T // ***
+  abstract mapRow(row: string[]): T
 }
