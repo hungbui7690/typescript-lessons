@@ -1,22 +1,20 @@
 /*
-  Data Types
-  - Issue: [Data Array is all strings, even though it might have numbers/date in it]
-  - pic
+  Converting Date Strings to Dates P1
+  - pic 
 
-  - 10/08/2018,Man United,Leicester,2,1,H,A Marriner
-    > Date
-    > string
-    > number
-    > MatchResult 
-    
+  - 10/08/2018
+    > split into month, day, year 
+    > then convert
+
+  - create utils.ts
+    > test: ts-node src/utils.ts
+
 */
 
 import { CsvFileReader } from './CsvFileReader'
 
 const reader = new CsvFileReader('football.csv')
 reader.read()
-
-console.log(reader.data) // ***
 
 enum MatchResult {
   HomeWin = 'H',

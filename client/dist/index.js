@@ -1,21 +1,20 @@
 "use strict";
 /*
-  Data Types
-  - Issue: [Data Array is all strings, even though it might have numbers/date in it]
+  Converting Date Strings to Dates P1
   - pic
 
-  - 10/08/2018,Man United,Leicester,2,1,H,A Marriner
-    > Date
-    > string
-    > number
-    > MatchResult
-    
+  - 10/08/2018
+    > split into month, day, year
+    > then convert
+
+  - create utils.ts
+    > test: ts-node src/utils.ts
+
 */
 Object.defineProperty(exports, "__esModule", { value: true });
 const CsvFileReader_1 = require("./CsvFileReader");
 const reader = new CsvFileReader_1.CsvFileReader('football.csv');
 reader.read();
-console.log(reader.data); // ***
 var MatchResult;
 (function (MatchResult) {
     MatchResult["HomeWin"] = "H";
