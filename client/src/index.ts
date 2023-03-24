@@ -1,6 +1,5 @@
 /*
-  Using Enums P1
-  - enumeration
+  Using Enums P2
 
 */
 
@@ -13,11 +12,18 @@ const matches = fs
   .split('\n')
   .map((row: string): string[] => row.split(','))
 
-// *** in JS, object has a tons of usage > in this case, it's unclear
-const MatchResult = {
-  HomeWin: 'H',
-  AwayWin: 'A',
-  Draw: 'D', // not grey out anymore
+// *** use enum: use for small set > signal to other devs that this is a collection of "very closely values"
+enum MatchResult {
+  HomeWin = 'H',
+  AwayWin = 'A',
+  Draw = 'D',
+}
+
+// *** when we create enum > we create a new type > this example function below will return that new type
+const printMatchResult = (): MatchResult => {
+  if (matches[0][5] === 'H') return MatchResult.HomeWin
+
+  return MatchResult.AwayWin
 }
 
 let manUnitedWins = 0

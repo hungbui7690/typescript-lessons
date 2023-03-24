@@ -1,7 +1,6 @@
 "use strict";
 /*
-  Using Enums P1
-  - enumeration
+  Using Enums P2
 
 */
 var __importDefault = (this && this.__importDefault) || function (mod) {
@@ -15,11 +14,18 @@ const matches = fs_1.default
 })
     .split('\n')
     .map((row) => row.split(','));
-// *** in JS, object has a tons of usage > in this case, it's unclear
-const MatchResult = {
-    HomeWin: 'H',
-    AwayWin: 'A',
-    Draw: 'D', // not grey out anymore
+// *** use enum: use for small set > signal to other devs that this is a collection of "very closely values"
+var MatchResult;
+(function (MatchResult) {
+    MatchResult["HomeWin"] = "H";
+    MatchResult["AwayWin"] = "A";
+    MatchResult["Draw"] = "D";
+})(MatchResult || (MatchResult = {}));
+// *** when we create enum > we create a new type > this example function below will return that new type
+const printMatchResult = () => {
+    if (matches[0][5] === 'H')
+        return MatchResult.HomeWin;
+    return MatchResult.AwayWin;
 };
 let manUnitedWins = 0;
 for (let match of matches) {
