@@ -1,7 +1,7 @@
 /*
-  Describing a Row with a Tuple P1
-  - we still have :any type in CsvFileReader.ts
-    > pic
+  Describing a Row with a Tuple P2
+  - pic
+
 */
 
 import { CsvFileReader } from './CsvFileReader'
@@ -9,6 +9,10 @@ import { MatchResult } from './MatchResult'
 
 const reader = new CsvFileReader('football.csv')
 reader.read()
+
+// ***
+const dateOfFirstMatch = reader.data[0][0] // type = Date
+// dateOfFirstMatch. // show all Date methods
 
 let manUnitedWins = 0
 for (let match of reader.data) {

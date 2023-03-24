@@ -9,7 +9,7 @@ const utils_1 = require("./utils");
 class CsvFileReader {
     constructor(filename) {
         this.filename = filename;
-        this.data = [];
+        this.data = []; // ***
     }
     read() {
         this.data = fs_1.default
@@ -18,7 +18,7 @@ class CsvFileReader {
         })
             .split('\n')
             .map((row) => row.split(','))
-            // *** we don't want to do as below > because when we use it, we need to use Type Guards > tuple > next lesson
+            // ***
             .map((row) => {
             return [
                 (0, utils_1.dateStringToDate)(row[0]),

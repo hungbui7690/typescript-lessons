@@ -2,8 +2,10 @@ import fs from 'fs'
 import { dateStringToDate } from './utils'
 import { MatchResult } from './MatchResult'
 
+type MatchData = [Date, string, string, number, number, MatchResult, string] // ***
+
 export class CsvFileReader {
-  data: string[][] = []
+  data: MatchData[] = [] // ***
   constructor(public filename: string) {}
   read(): void {
     this.data = fs
@@ -12,9 +14,8 @@ export class CsvFileReader {
       })
       .split('\n')
       .map((row: string): string[] => row.split(','))
-
-      // *** we don't want to do as below > because when we use it, we need to use Type Guards > tuple > next lesson
-      .map((row: string[]): (Date | string | number | MatchResult)[] => {
+      // ***
+      .map((row: string[]): MatchData => {
         return [
           dateStringToDate(row[0]),
           row[1],

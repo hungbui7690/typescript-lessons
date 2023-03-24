@@ -1,14 +1,17 @@
 "use strict";
 /*
-  Describing a Row with a Tuple P1
-  - we still have :any type in CsvFileReader.ts
-    > pic
+  Describing a Row with a Tuple P2
+  - pic
+
 */
 Object.defineProperty(exports, "__esModule", { value: true });
 const CsvFileReader_1 = require("./CsvFileReader");
 const MatchResult_1 = require("./MatchResult");
 const reader = new CsvFileReader_1.CsvFileReader('football.csv');
 reader.read();
+// ***
+const dateOfFirstMatch = reader.data[0][0]; // type = Date
+// dateOfFirstMatch. // show all Date methods
 let manUnitedWins = 0;
 for (let match of reader.data) {
     if (match[1] === 'Man United' && match[5] === MatchResult_1.MatchResult.HomeWin) {
