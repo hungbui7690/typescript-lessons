@@ -9,7 +9,7 @@ const utils_1 = require("./utils");
 class CsvFileReader {
     constructor(filename) {
         this.filename = filename;
-        this.data = []; // ***
+        this.data = [];
     }
     read() {
         this.data = fs_1.default
@@ -18,18 +18,19 @@ class CsvFileReader {
         })
             .split('\n')
             .map((row) => row.split(','))
-            // ***
-            .map((row) => {
-            return [
-                (0, utils_1.dateStringToDate)(row[0]),
-                row[1],
-                row[2],
-                parseInt(row[3]),
-                parseInt(row[4]),
-                row[5],
-                row[6],
-            ];
-        });
+            .map(this.mapRow); // *** extract logic to below function and use here > callback
+    }
+    // ***
+    mapRow(row) {
+        return [
+            (0, utils_1.dateStringToDate)(row[0]),
+            row[1],
+            row[2],
+            parseInt(row[3]),
+            parseInt(row[4]),
+            row[5],
+            row[6],
+        ];
     }
 }
 exports.CsvFileReader = CsvFileReader;
