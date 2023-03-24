@@ -1,23 +1,10 @@
 "use strict";
 /*
-  Inheritance vs Composition
-  - pic
+  A CompositionBased Approach
+  - check goal picture to see the structure
 
-////////////////////////////////////////
-
-  More on Inheritance vs Composition
-  - pic
-
-////////////////////////////////////////
-
-  A Huge Misconception Around "Composition"
-  - *** important
-
-////////////////////////////////////////
-
-  Goal Moving Forward
-  - pic
-  - issues below
+  - move MatchData tuple into MatchData.ts so that every class can use it
+  - create Summary.ts
 
 */
 Object.defineProperty(exports, "__esModule", { value: true });
@@ -27,8 +14,6 @@ const MatchResult_1 = require("./MatchResult");
 const csvFileReader = new CsvFileReader_1.CsvFileReader('football.csv');
 const matchReader = new MatchReader_1.MatchReader(csvFileReader);
 matchReader.load();
-///////////////////////////////////
-// *** 3 issues are here
 let manUnitedWins = 0;
 for (let match of matchReader.matches) {
     if (match[1] === 'Man United' && match[5] === MatchResult_1.MatchResult.HomeWin) {
