@@ -1,14 +1,21 @@
 "use strict";
 /*
-  Extracting CSV Reading P2
-  - create CsvFileReader.ts
+  Data Types
+  - Issue: [Data Array is all strings, even though it might have numbers/date in it]
+  - pic
 
+  - 10/08/2018,Man United,Leicester,2,1,H,A Marriner
+    > Date
+    > string
+    > number
+    > MatchResult
+    
 */
 Object.defineProperty(exports, "__esModule", { value: true });
 const CsvFileReader_1 = require("./CsvFileReader");
-// ***
 const reader = new CsvFileReader_1.CsvFileReader('football.csv');
-reader.read(); // do not need to store into anything
+reader.read();
+console.log(reader.data); // ***
 var MatchResult;
 (function (MatchResult) {
     MatchResult["HomeWin"] = "H";
@@ -16,7 +23,6 @@ var MatchResult;
     MatchResult["Draw"] = "D";
 })(MatchResult || (MatchResult = {}));
 let manUnitedWins = 0;
-// *** use reader.data
 for (let match of reader.data) {
     if (match[1] === 'Man United' && match[5] === MatchResult.HomeWin) {
         manUnitedWins++;
