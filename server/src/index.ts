@@ -1,18 +1,11 @@
 /*
-  Issues with Type Definition Files
-  - pic 
+  Dealing with Poor Type Defs
+  - from last lesson, we know that req.body has type of any 
+    > but we should not change TDF 
   - loginRoutes.ts
+    > we will create interface to overwrite the body property of Request object
 
-  - modify d.ts file 
-    From: 
-    + body: ReqBody
-    To: 
-    + body: {[key: string] : string | undefined};
-
-  > we need "type def file" to work with TS > but if TDF is not good > it does not help us too much 
-
-  (***) need to change back TDF to default
-
+  (***) this is not an ideal solution
 */
 
 import express, { Request, Response } from 'express'

@@ -2,35 +2,40 @@ import { Router, Request, Response } from 'express'
 
 const router = Router()
 
+// *** overwrite
+interface RequestWithBody extends Request {
+  body: { [key: string]: string | undefined }
+}
+
 router.get('/login', (req: Request, res: Response) => {
-  // *** change name property to something wrong
+  // *** change attribute name
   res.send(`
     <form method='POST'>
       <div>
         <label>Email</label>
-        <input name='em' type='text'/>
+        <input name='email' type='text'/>
       </div>
       <div>
         <label>Password</label>
-        <input name='pw' type='password'/>
+        <input name='password' type='password'/>
       </div>
       <button type='submit'>Submit</button>
     </form>
   `)
 })
 
-router.post('/login', (req: Request, res: Response) => {
-  const { email, password } = req.body // type of email === any > if we change the name attributes in these fields > there's no way that server knows > TS cannot check it as well > this is the problem with server
+// *** req: RequestWithBody
+router.post('/login', (req: RequestWithBody, res: Response) => {
+  const { email, password } = req.body
 
-  // *** type guard
+  // ***
   if (email) {
-    email.toUpperCase()
+    return res.send(email.toUpperCase())
   } else {
-    res.send('You must provide an email property')
+    return res.send('You must provide an email')
   }
 
-  // *** ctrl click on req.body > modify type definition file > now we see the error
-  res.send(email.toUpperCase()) // type === any > no code suggestion
+  res.send(email.toUpperCase())
 })
 
 export { router }
