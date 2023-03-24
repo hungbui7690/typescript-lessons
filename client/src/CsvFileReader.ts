@@ -1,7 +1,6 @@
 import fs from 'fs'
 import { dateStringToDate } from './utils'
-
-import { MatchResult } from './MatchResult' // ***
+import { MatchResult } from './MatchResult'
 
 export class CsvFileReader {
   data: string[][] = []
@@ -13,14 +12,16 @@ export class CsvFileReader {
       })
       .split('\n')
       .map((row: string): string[] => row.split(','))
-      .map((row: string[]): any => {
+
+      // *** we don't want to do as below > because when we use it, we need to use Type Guards > tuple > next lesson
+      .map((row: string[]): (Date | string | number | MatchResult)[] => {
         return [
           dateStringToDate(row[0]),
           row[1],
           row[2],
           parseInt(row[3]),
           parseInt(row[4]),
-          row[5] as MatchResult, // *** type assertion: overwrite TS behavior
+          row[5] as MatchResult,
           row[6],
         ]
       })

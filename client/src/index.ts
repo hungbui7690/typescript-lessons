@@ -1,14 +1,11 @@
 /*
-  Type Assertions
-  - create MatchResult.ts
-  - CsvFileReader.ts
-  
-  (***) by convention, we should not export anything from index.ts file 
-    > we need to move enum to another file
+  Describing a Row with a Tuple P1
+  - we still have :any type in CsvFileReader.ts
+    > pic
 */
 
 import { CsvFileReader } from './CsvFileReader'
-import { MatchResult } from './MatchResult' // ***
+import { MatchResult } from './MatchResult'
 
 const reader = new CsvFileReader('football.csv')
 reader.read()

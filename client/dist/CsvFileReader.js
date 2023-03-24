@@ -18,6 +18,7 @@ class CsvFileReader {
         })
             .split('\n')
             .map((row) => row.split(','))
+            // *** we don't want to do as below > because when we use it, we need to use Type Guards > tuple > next lesson
             .map((row) => {
             return [
                 (0, utils_1.dateStringToDate)(row[0]),
