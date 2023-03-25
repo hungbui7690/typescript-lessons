@@ -1,5 +1,4 @@
 import { Router, Request, Response } from 'express'
-
 const router = Router()
 
 interface RequestWithBody extends Request {
@@ -22,19 +21,34 @@ router.get('/login', (req: Request, res: Response) => {
   `)
 })
 
-// by default req.sessions = undefined because req object does not have sessions
 router.post('/login', (req: RequestWithBody, res: Response) => {
   const { email, password } = req.body
 
-  // ***
   if (email && password && email === 'hi' && password === 'hi') {
-    // mark this person as logged in
     req.session = { loggedIn: true }
-
-    // redirect
     res.redirect('/')
   } else {
     return res.send('Invalid email or password')
+  }
+})
+
+// *** check overview
+router.get('/', (req: Request, res: Response) => {
+  // as we learned in prev lesson > req.session maybe undefined
+  if (req.session && req.session?.loggedIn) {
+    res.send(`
+      <div>
+        <div>You are logged in</div>
+        <a href='/logout'>Logout</a>
+      </div>
+    `)
+  } else {
+    res.send(`
+      <div>
+        <div>You are NOT logged in</div>
+        <a href='/login'>Login</a>
+      </div>
+    `)
   }
 })
 
