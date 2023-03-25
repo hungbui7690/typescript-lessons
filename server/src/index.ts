@@ -1,12 +1,14 @@
 /*
-  Decorators Around Properties 
+  More on Decorators P1
+  - use decorator on an accessor (getter)
 
 */
 
 class Boat {
-  @testDecorator // ***
+  @testDecorator
   color: string = 'red'
 
+  @testDecorator // ***
   get formattedColor(): string {
     return `This boat color is ${this.color}`
   }
@@ -17,13 +19,10 @@ class Boat {
   }
 }
 
-// ***
+// *** now, it will log 2 targets and 2 keys
 function testDecorator(target: any, key: string) {
   console.log(target)
   console.log(key)
-
-  // print out the value
-  console.log(target.value) // wrong: because target points to prototype > always store methods > cannot access instance members > but decorator is executed b4 we create the instance > there's no way to access instance member when using decorator
 }
 
 function logError(errorMessage: string) {
