@@ -1,9 +1,11 @@
 /*
-  More on Decorators P2
-  - apply decorator on method parameters
+  More on Decorators P3
+  - apply on the class
+  - also can apply on static method, static properties...
 
 */
 
+@classDecorator // ***
 class Boat {
   color: string = 'red'
 
@@ -11,22 +13,13 @@ class Boat {
     return `This boat color is ${this.color}`
   }
 
-  // *** use decorator in parameter
-  pilot(
-    @parameterDecorator speed: string,
-    @parameterDecorator generateWake: boolean
-  ): void {
+  pilot(speed: string): void {
     if (speed === 'fast') console.log('swish')
     else console.log('nothing')
   }
 }
 
-// *** target can be any or Boat
-function parameterDecorator(target: any, key: string, index: number) {
-  console.log(key, index)
-
-  /*
-    pilot 1
-    pilot 0
-  */
+// ***
+function classDecorator(constructor: typeof Boat) {
+  console.log(constructor)
 }
