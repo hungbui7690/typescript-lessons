@@ -1,40 +1,32 @@
 /*
-  More on Decorators P1
-  - use decorator on an accessor (getter)
+  More on Decorators P2
+  - apply decorator on method parameters
 
 */
 
 class Boat {
-  @testDecorator
   color: string = 'red'
 
-  @testDecorator // ***
   get formattedColor(): string {
     return `This boat color is ${this.color}`
   }
 
-  @logError('Oops, boat was sunk in ocean')
-  pilot(): void {
-    throw new Error('')
+  // *** use decorator in parameter
+  pilot(
+    @parameterDecorator speed: string,
+    @parameterDecorator generateWake: boolean
+  ): void {
+    if (speed === 'fast') console.log('swish')
+    else console.log('nothing')
   }
 }
 
-// *** now, it will log 2 targets and 2 keys
-function testDecorator(target: any, key: string) {
-  console.log(target)
-  console.log(key)
-}
+// *** target can be any or Boat
+function parameterDecorator(target: any, key: string, index: number) {
+  console.log(key, index)
 
-function logError(errorMessage: string) {
-  return function (target: any, key: string, desc: PropertyDescriptor): void {
-    const method = desc.value
-
-    desc.value = function () {
-      try {
-        method()
-      } catch (error) {
-        console.log(errorMessage)
-      }
-    }
-  }
+  /*
+    pilot 1
+    pilot 0
+  */
 }
