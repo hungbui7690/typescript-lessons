@@ -5,7 +5,6 @@ interface RequestWithBody extends Request {
   body: { [key: string]: string | undefined }
 }
 
-// *** use this middleware below
 function requireAuth(req: Request, res: Response, next: NextFunction): void {
   if (req.session && req.session?.loggedIn) return next()
 
@@ -62,7 +61,6 @@ router.get('/logout', (req: Request, res: Response) => {
   res.redirect('/')
 })
 
-// ***
 router.get('/protected', requireAuth, (req: Request, res: Response) => {
   res.send('Welcome to protected route, logged in user')
 })

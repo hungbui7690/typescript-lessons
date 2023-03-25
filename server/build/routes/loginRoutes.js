@@ -4,7 +4,6 @@ exports.router = void 0;
 const express_1 = require("express");
 const router = (0, express_1.Router)();
 exports.router = router;
-// *** use this middleware below
 function requireAuth(req, res, next) {
     var _a;
     if (req.session && ((_a = req.session) === null || _a === void 0 ? void 0 : _a.loggedIn))
@@ -59,7 +58,6 @@ router.get('/logout', (req, res) => {
     req.session = undefined;
     res.redirect('/');
 });
-// ***
 router.get('/protected', requireAuth, (req, res) => {
     res.send('Welcome to protected route, logged in user');
 });
