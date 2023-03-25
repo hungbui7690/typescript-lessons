@@ -1,27 +1,28 @@
 /*
-  Details on Decorators
+  Property Descriptors
   - pic
-    > decorators will be applied single time when a class is create > not when instantiating an object
+  - ES5 JS > contains configurations for object
+
 
 */
 
 class Boat {
-  color: string = 'red' // property
+  color: string = 'red'
 
-  // accessor
   get formattedColor(): string {
     return `This boat color is ${this.color}`
   }
 
-  // @testDecorator // method
+  @logError // ***
   pilot(): void {
+    throw new Error('') // *** will use decorator to catch error below
+
     console.log('swish')
   }
 }
 
-function testDecorator(target: any, key: string): void {
-  console.log(target) // { pilot: [Function (anonymous)] } > prototype of class boat
-  console.log(key) // pilot
+// *** change to log error > add 3rd param
+function logError(target: any, key: string, desc: PropertyDescriptor): void {
+  console.log(target)
+  console.log(key)
 }
-
-testDecorator(Boat.prototype, 'pilot') // *** remove @decorator above > this is the way we run > just syntactic sugar
