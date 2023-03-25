@@ -1,7 +1,6 @@
 /*
-  Login Out
-  - loginRoutes.ts
-
+  Protecting Routes
+  - using middleware > loginRoutes.ts
 
 */
 

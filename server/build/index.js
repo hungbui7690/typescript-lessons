@@ -1,8 +1,7 @@
 "use strict";
 /*
-  Login Out
-  - loginRoutes.ts
-
+  Protecting Routes
+  - using middleware > loginRoutes.ts
 
 */
 var __importDefault = (this && this.__importDefault) || function (mod) {
