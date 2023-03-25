@@ -1,8 +1,5 @@
 /*
-  Property Descriptors
-  - pic
-  - ES5 JS > contains configurations for object
-
+  Wrapping Methods with Descriptors
 
 */
 
@@ -13,16 +10,25 @@ class Boat {
     return `This boat color is ${this.color}`
   }
 
-  @logError // ***
+  @logError
   pilot(): void {
-    throw new Error('') // *** will use decorator to catch error below
+    throw new Error('') // ***
 
     console.log('swish')
   }
 }
 
-// *** change to log error > add 3rd param
 function logError(target: any, key: string, desc: PropertyDescriptor): void {
-  console.log(target)
-  console.log(key)
+  const method = desc.value
+
+  // *** redefine function
+  desc.value = function () {
+    try {
+      method()
+    } catch (error) {
+      console.log('Oops, boat was sunk')
+    }
+  }
 }
+
+new Boat().pilot() // *** we are successfully intercept the pilot()
