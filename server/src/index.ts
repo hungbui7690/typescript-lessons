@@ -1,5 +1,5 @@
 /*
-  Wrapping Methods with Descriptors
+  Decorator Factories
 
 */
 
@@ -10,25 +10,26 @@ class Boat {
     return `This boat color is ${this.color}`
   }
 
-  @logError
+  @logError('Oops, boat was sunk in ocean') // *** pass parameter to decorator
   pilot(): void {
-    throw new Error('') // ***
-
-    console.log('swish')
+    throw new Error('')
   }
 }
 
-function logError(target: any, key: string, desc: PropertyDescriptor): void {
-  const method = desc.value
+// *** decorator factory: decorator that returns function
+function logError(errorMessage: string) {
+  // *** return
+  return function (target: any, key: string, desc: PropertyDescriptor): void {
+    const method = desc.value
 
-  // *** redefine function
-  desc.value = function () {
-    try {
-      method()
-    } catch (error) {
-      console.log('Oops, boat was sunk')
+    desc.value = function () {
+      try {
+        method()
+      } catch (error) {
+        console.log(errorMessage) // ***
+      }
     }
   }
 }
 
-new Boat().pilot() // *** we are successfully intercept the pilot()
+new Boat().pilot()
