@@ -32,9 +32,7 @@ router.post('/login', (req: RequestWithBody, res: Response) => {
   }
 })
 
-// *** check overview
 router.get('/', (req: Request, res: Response) => {
-  // as we learned in prev lesson > req.session maybe undefined
   if (req.session && req.session?.loggedIn) {
     res.send(`
       <div>
@@ -50,6 +48,12 @@ router.get('/', (req: Request, res: Response) => {
       </div>
     `)
   }
+})
+
+// ***
+router.get('/logout', (req: Request, res: Response) => {
+  req.session = undefined
+  res.redirect('/')
 })
 
 export { router }

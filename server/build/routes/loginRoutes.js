@@ -29,10 +29,8 @@ router.post('/login', (req, res) => {
         return res.send('Invalid email or password');
     }
 });
-// *** check overview
 router.get('/', (req, res) => {
     var _a;
-    // as we learned in prev lesson > req.session maybe undefined
     if (req.session && ((_a = req.session) === null || _a === void 0 ? void 0 : _a.loggedIn)) {
         res.send(`
       <div>
@@ -49,4 +47,9 @@ router.get('/', (req, res) => {
       </div>
     `);
     }
+});
+// ***
+router.get('/logout', (req, res) => {
+    req.session = undefined;
+    res.redirect('/');
 });

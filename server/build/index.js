@@ -1,7 +1,8 @@
 "use strict";
 /*
-  Checking Login Status
+  Login Out
   - loginRoutes.ts
+
 
 */
 var __importDefault = (this && this.__importDefault) || function (mod) {

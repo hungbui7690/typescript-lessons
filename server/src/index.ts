@@ -1,6 +1,7 @@
 /*
-  Checking Login Status
+  Login Out
   - loginRoutes.ts
+
 
 */
 
